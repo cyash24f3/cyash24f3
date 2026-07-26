@@ -1,129 +1,127 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=28&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&multiline=true&width=700&height=80&lines=Hey%2C+I'm+Yash+Chavan+%F0%9F%91%8B;Building+production-grade+AI+and+ML+systems." alt="Typing SVG" />
+# Yash Chavan
 
-<br/>
+### AI Engineering · LLM Evaluation · Model Serving
 
-<img src="profile.jpg" width="150" style="border-radius: 50%; border: 3px solid #6366F1; margin-bottom: 10px;" alt="Yash Chavan" />
+Final-year IIT Madras BS Data Science student building small-language-model systems from data design and fine-tuning through evaluation, portability, APIs, containers, and release evidence.
 
-<br/>
-
-**`IIT Madras · Data Science & AI`**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yash-chavan-9500a3228/)
-[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face-FFD21E?style=for-the-badge)](https://huggingface.co/cyash1204)
-[![Gmail](https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yashchavan1214@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Yash_Chavan-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yash-chavan-9500a3228/)
+[![Hugging Face](https://img.shields.io/badge/Hugging_Face-cyash1204-FFD21E?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/cyash1204)
+[![Portfolio](https://img.shields.io/badge/Portfolio-SETU_×_VAHAAN-0E7C7B?style=flat-square)](https://setu-vaahan.witty-loon-6439.chatgpt.site/)
+[![Email](https://img.shields.io/badge/Email-yashchavan1214%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:yashchavan1214@gmail.com)
 
 </div>
 
----
+## Profile
 
-### 🧠 About Me
+I focus on applied LLM engineering: defining strict NLP contracts, building and auditing data, adapting small models under hardware constraints, evaluating failure modes, and turning selected artifacts into reproducible services.
 
-I'm a **Data Science & AI** undergrad at **IIT Madras** who loves taking ML models off Jupyter notebooks and shipping them as production-grade, containerized applications.
+My current work is one connected engineering lifecycle:
 
-- 🔬 Built & deployed **3 production-grade deep learning applications** — live on Hugging Face Spaces.
-- 🏗️ Full-stack pipeline builder: **model training → API development (FastAPI/Flask) → Docker → cloud deployment**.
-- 🎯 Areas of interest: **Computer Vision, Audio ML, MLOps, and Deep Learning**.
-- 📍 Based in India · Actively seeking **AI/ML & Data Science internships**.
+**SETU** defines, trains, and evaluates a Hinglish support-understanding model.  
+**VAHAAN** converts, qualifies, packages, and serves the selected SETU release.
 
----
+I am seeking a remote AI Engineering internship involving LLM/NLP evaluation, model testing, troubleshooting, serving, and technical documentation.
 
-### 🚀 Featured Projects
+## Selected projects
 
-<table width="100%">
-<tr>
-<td width="33%" align="center" valign="top">
+### SETU — Hinglish Support Understanding
 
-**🩻 X-Ray Disease Classifier**
+> Structured NLP with Qwen3.5-2B, MLX QLoRA, strict evaluation, and reproducible synthetic data.
 
-Multi-Label Chest X-Ray classification of 10 diseases using DenseNet121 and custom training.
+[Repository](https://github.com/cyash24f3/setu) ·
+[Public showcase](https://setu-vaahan.witty-loon-6439.chatgpt.site/) ·
+[Model](https://huggingface.co/cyash1204/setu-qwen35-2b-lora) ·
+[Dataset](https://huggingface.co/datasets/cyash1204/setu-hinglish-support-6000)
 
-[![Demo](https://img.shields.io/badge/🔴_Live_Demo-FF6B6B?style=flat-square)](https://huggingface.co/spaces/cyash1204/xray-disease-classifier)
-[![Code](https://img.shields.io/badge/Source_Code-181717?style=flat-square&logo=github)](https://github.com/cyash24f3/xray-disease-classifier)
+- Designed a deterministic **6,000-record** Hinglish/English dataset covering **50 support scenarios** and a strict ten-field output contract.
+- Enforced entity grounding, duplicate checks, taxonomy invariants, and group-aware **4,800 / 600 / 600** train-validation-test splits.
+- Fine-tuned a 4-bit **Qwen3.5-2B** with MLX QLoRA on Apple silicon using rank 8 adapters across the last 12 layers.
+- Selected checkpoint 700 using validation loss after an 800-step reference run.
+- Evaluated all 600 held-out synthetic rows without post-hoc output repair.
 
-`PyTorch` `FastAPI` `Docker` `Gradio`
+| Held-out result | Value |
+|:---|---:|
+| Strict schema validity | **96.33%** |
+| Intent accuracy | **94.33%** |
+| Issue-type accuracy | **95.50%** |
+| Mean correct fields | **8.99 / 10** |
+| All-ten-field exact match | **46.67%** |
+| Primary weakness | Language mix: **68.5%** |
 
-</td>
-<td width="33%" align="center" valign="top">
+The evaluation suite includes deterministic-rule and untuned-model baselines, strict parsing, per-field accuracy and macro F1, bootstrap intervals, behavioral slices, resumable prediction artifacts, and row-level error reports.
 
-**🌿 Plant Super-Resolution**
+### VAHAAN — Portable Model Release & Serving
 
-Swin2SR transformer fine-tuned for 2× image upscaling, catering specifically to botanical imagery.
+> MLX-to-GGUF portability, llama.cpp inference, FastAPI service engineering, Docker, and observability.
 
-[![Demo](https://img.shields.io/badge/🔴_Live_Demo-4ADE80?style=flat-square)](https://huggingface.co/spaces/cyash1204/plant-super-resolution)
-[![Code](https://img.shields.io/badge/Source_Code-181717?style=flat-square&logo=github)](https://github.com/cyash24f3/plant-super-resolution)
+[Repository](https://github.com/cyash24f3/vaahan) ·
+[Public evidence site](https://setu-vaahan.witty-loon-6439.chatgpt.site/) ·
+[GGUF LoRA](https://huggingface.co/cyash1204/setu-qwen35-2b-lora)
 
-`Transformers` `FastAPI` `Docker` `Gradio`
+- Converted the selected MLX adapter through PEFT layout into a llama.cpp-compatible F16 LoRA artifact.
+- Diagnosed and rejected a faulty direct fused conversion after it produced invalid generations.
+- Compared Q4_K_M and Q8_0 bases on a fixed, scenario-balanced 50-row equivalence canary.
+- Selected Q8_0 for stronger structured fidelity despite its higher local latency.
 
-</td>
-<td width="33%" align="center" valign="top">
+| Portability canary | Q4_K_M | Q8_0 selected |
+|:---|---:|---:|
+| Strict schema validity | 90% | **92%** |
+| Exact agreement with MLX | 56% | **62%** |
+| Mean matching fields | 8.66 / 10 | **8.88 / 10** |
 
-**🎧 Music Genre Classifier**
+The service includes:
 
-MERT (Music Audio Representation Transformer) fine-tuned to categorize 10 music genres.
+- Typed FastAPI and Pydantic request/response contracts
+- Supervised llama.cpp process lifecycle and readiness
+- Immutable release manifests and SHA-256 artifact verification
+- Strict model-output validation and typed failures
+- Bounded concurrency, rate limiting, and timeouts
+- Privacy-safe structured logging and Prometheus metrics
+- Liveness, readiness, and release-version endpoints
+- Non-root Docker packaging, CI, linting, type checking, and API/service tests
 
-[![Demo](https://img.shields.io/badge/🔴_Live_Demo-A855F7?style=flat-square)](https://huggingface.co/spaces/cyash1204/music-genre-classifier)
-[![Code](https://img.shields.io/badge/Source_Code-181717?style=flat-square&logo=github)](https://github.com/cyash24f3/music-genre-classifier)
+**Deployment boundary:** the public URL is an evidence showcase. The verified Q8 llama.cpp model service performs real inference locally; I do not present the static site as publicly hosted live model compute.
 
-`MERT` `Librosa` `FastAPI` `Docker` `Gradio`
+## Engineering stack
 
-</td>
-</tr>
-</table>
-
-> Every AI project ships with a **FastAPI REST API**, a **polished Gradio UI**, and a **production Docker container** — built to scale.
-
----
-
-### 🛠️ Tech Stack
-
-<div align="center">
-
-| Domain | Technologies |
+| Area | Tools and concepts |
 |:---|:---|
-| **Languages** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white) ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white) ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white) |
-| **ML / DL / AI** | ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white) ![HuggingFace](https://img.shields.io/badge/Transformers-FFD21E?style=flat-square&logo=huggingface&logoColor=black) ![scikit-learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat-square) |
-| **Web & APIs** | ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white) ![Gradio](https://img.shields.io/badge/Gradio-F97316?style=flat-square) |
-| **DevOps** | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black) |
+| Languages | Python, SQL, Java, C++ |
+| LLM / NLP | Transformers, LoRA, QLoRA, structured generation, prompt contracts |
+| Frameworks | PyTorch, MLX-LM, Hugging Face, scikit-learn, FastAPI, Pydantic |
+| Model runtimes | MLX, llama.cpp, GGUF |
+| Evaluation | Schema validity, exact/field metrics, macro F1, bootstrap intervals, slice and error analysis |
+| Engineering | REST, OpenAPI, Docker, pytest, mypy, GitHub Actions, Linux |
+| Experimentation | Weights & Biases, Jupyter, reproducible virtual environments |
 
-</div>
+## How I approach an AI system
 
----
-
-### 🏗️ How I Build AI Applications
-
+```text
+Task contract
+  → data generation and validation
+  → leakage-aware split and baselines
+  → parameter-efficient fine-tuning
+  → strict held-out evaluation and error analysis
+  → cross-runtime conversion and equivalence canary
+  → release manifest and verified artifacts
+  → bounded API serving, observability, and containerization
 ```
-Research & Train  ──>  FastAPI Service  ──>  Gradio Frontend  ──>  Dockerize  ──>  Deploy
-(Jupyter/PyTorch)      (Inference APIs)      (Polished UI)         (Multi-Stage)   (HF/Vercel)
-```
 
----
+## Education
 
-### 📊 GitHub Stats
+**Indian Institute of Technology Madras**  
+BS in Data Science & Applications · CGPA 8.94 · 2024–October 2027  
+Completed the Diplomas in Programming and Data Science.
 
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=cyash24f3&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6366F1&icon_color=6366F1&text_color=C9D1D9" height="165" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=cyash24f3&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6366F1&text_color=C9D1D9" height="165" />
-
-</div>
-
----
-
-### 🎓 Education
-
-| Institution | Degree / Program | Grade | Duration |
-|:---|:---|:---:|:---|
-| **IIT Madras** | B.Sc. Data Science & Applications | **CGPA 8.94** | 2024 – 2027 (Expected) |
-| **BITS Pilani** | B.E. Chemical Engineering *(on break)* | — | 2023 – Present |
+**BITS Pilani**  
+BE Chemical Engineering · Academic break to pursue AI/ML · 2023–present.
 
 ---
 
 <div align="center">
 
-**If you're building something interesting in AI, MLOps, or Data Science, let's connect!**
-
-[![Email Me](https://img.shields.io/badge/Let's_Talk-yashchavan1214@gmail.com-6366F1?style=for-the-badge)](mailto:yashchavan1214@gmail.com)
+Open to remote, six-month AI Engineering internships.
 
 </div>
