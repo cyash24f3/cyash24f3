@@ -2,7 +2,7 @@
 
 # Yash Chavan
 
-### AI Engineering · ML Engineering · Data Science
+### AI Engineering · ML Engineering
 
 Building and evaluating machine learning systems, from model adaptation to agent workflows and evidence-grounded search.
 
@@ -16,7 +16,7 @@ Building and evaluating machine learning systems, from model adaptation to agent
 
 ## About me
 
-I'm pursuing a **BS in Data Science & Applications at IIT Madras**, with a focus on **AI engineering, ML engineering, and data science**. I take projects from data and baselines to model experiments, backend workflows, and usable apps, with attention to evaluation and explicit failure handling.
+I'm pursuing a **BS in Data Science & Applications at IIT Madras**, with a focus on **AI/ML engineering. I take projects from data and baselines to model experiments, backend workflows, and usable apps, with attention to evaluation and explicit failure handling.
 
 My current work spans **small-model adaptation with AdaptLM**, **stateful agent workflows with ResolveFlow**, and **retrieval-augmented generation with DocuLens**. Each project includes reproducible experiments and evidence that makes engineering decisions easy to inspect.
 
