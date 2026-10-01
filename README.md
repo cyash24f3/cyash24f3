@@ -2,126 +2,94 @@
 
 # Yash Chavan
 
-### AI Engineering · LLM Evaluation · Model Serving
+### AI Engineering · ML Engineering · Data Science
 
-Final-year IIT Madras BS Data Science student building small-language-model systems from data design and fine-tuning through evaluation, portability, APIs, containers, and release evidence.
+Building and evaluating machine learning systems, from model adaptation to agent workflows and evidence-grounded search.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Yash_Chavan-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yash-chavan-9500a3228/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Yash_Chavan-0A66C2?style=flat-square)](https://www.linkedin.com/in/yash-chavan-9500a3228/)
 [![Hugging Face](https://img.shields.io/badge/Hugging_Face-cyash1204-FFD21E?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/cyash1204)
-[![Portfolio](https://img.shields.io/badge/Portfolio-SETU_×_VAHAAN-0E7C7B?style=flat-square)](https://setu-vaahan.witty-loon-6439.chatgpt.site/)
-[![Email](https://img.shields.io/badge/Email-yashchavan1214%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:yashchavan1214@gmail.com)
+[![Email](https://img.shields.io/badge/Email-Let%27s_connect-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:yashchavan1214@gmail.com)
 
 </div>
 
-## Profile
+---
 
-I focus on applied LLM engineering: defining strict NLP contracts, building and auditing data, adapting small models under hardware constraints, evaluating failure modes, and turning selected artifacts into reproducible services.
+## About me
 
-My current work is one connected engineering lifecycle:
+I'm pursuing a **BS in Data Science & Applications at IIT Madras**, with a focus on **AI engineering, ML engineering, and data science**. I take projects from data and baselines to model experiments, backend workflows, and usable apps, with attention to evaluation and explicit failure handling.
 
-**SETU** defines, trains, and evaluates a Hinglish support-understanding model.  
-**VAHAAN** converts, qualifies, packages, and serves the selected SETU release.
-
-I am seeking a remote AI Engineering internship involving LLM/NLP evaluation, model testing, troubleshooting, serving, and technical documentation.
+My current work spans **small-model adaptation with AdaptLM**, **stateful agent workflows with ResolveFlow**, and **retrieval-augmented generation with DocuLens**. Each project includes reproducible experiments and evidence that makes engineering decisions easy to inspect.
 
 ## Selected projects
 
-### SETU — Hinglish Support Understanding
+### AdaptLM · Small-model adaptation for support triage
 
-> Structured NLP with Qwen3.5-2B, MLX QLoRA, strict evaluation, and reproducible synthetic data.
+An experimental lab for adapting a small language model to structured support triage, with typed issues, extracted entities, and source-linked summary claims.
 
-[Repository](https://github.com/cyash24f3/setu) ·
-[Public showcase](https://setu-vaahan.witty-loon-6439.chatgpt.site/) ·
-[Model](https://huggingface.co/cyash1204/setu-qwen35-2b-lora) ·
-[Dataset](https://huggingface.co/datasets/cyash1204/setu-hinglish-support-6000)
+- Fine-tuned **Qwen2.5-1.5B-Instruct** with **PEFT/TRL LoRA** on Apple silicon over 880 training examples.
+- Evaluated a TF-IDF classifier and zero-shot, few-shot, and adapted generation using frozen splits, strict JSON contracts, and exact source-span checks, with documented schema and source-offset failures.
+- Deployed real base/adapter inference on **Hugging Face ZeroGPU**, backed by bounded FastAPI serving and inspectable experiment reports.
 
-- Designed a deterministic **6,000-record** Hinglish/English dataset covering **50 support scenarios** and a strict ten-field output contract.
-- Enforced entity grounding, duplicate checks, taxonomy invariants, and group-aware **4,800 / 600 / 600** train-validation-test splits.
-- Fine-tuned a 4-bit **Qwen3.5-2B** with MLX QLoRA on Apple silicon using rank 8 adapters across the last 12 layers.
-- Selected checkpoint 700 using validation loss after an 800-step reference run.
-- Evaluated all 600 held-out synthetic rows without post-hoc output repair.
+**Stack:** Python · PyTorch · Transformers · PEFT · TRL · scikit-learn · FastAPI
 
-| Held-out result | Value |
-|:---|---:|
-| Strict schema validity | **96.33%** |
-| Intent accuracy | **94.33%** |
-| Issue-type accuracy | **95.50%** |
-| Mean correct fields | **8.99 / 10** |
-| All-ten-field exact match | **46.67%** |
-| Primary weakness | Language mix: **68.5%** |
+[Source code](https://github.com/cyash24f3/AdaptLM) · [Live demo](https://huggingface.co/spaces/cyash1204/AdaptLM) · [Evaluation & findings](https://github.com/cyash24f3/AdaptLM/blob/main/docs/results.md)
 
-The evaluation suite includes deterministic-rule and untuned-model baselines, strict parsing, per-field accuracy and macro F1, bootstrap intervals, behavioral slices, resumable prediction artifacts, and row-level error reports.
+### ResolveFlow · Stateful support operations agent
 
-### VAHAAN — Portable Model Release & Serving
+A fictional support sandbox that investigates requests, collects missing details, and routes refunds, replacements, and cancellations through supervisor approval.
 
-> MLX-to-GGUF portability, llama.cpp inference, FastAPI service engineering, Docker, and observability.
+- Built **LangGraph workflows** with persistent PostgreSQL checkpoints, typed tools, and a durable job worker.
+- Enforced deterministic policy checks, scoped role access, and approval of the **exact proposed action** before changing the sandbox ledger.
+- Verified recovery across worker restarts and a cloud redeploy, with rejection checks and protection against duplicate effects. The hosted demo uses fixture decisions; live model tool calling is an optional mode.
 
-[Repository](https://github.com/cyash24f3/vaahan) ·
-[Public evidence site](https://setu-vaahan.witty-loon-6439.chatgpt.site/) ·
-[GGUF LoRA](https://huggingface.co/cyash1204/setu-qwen35-2b-lora)
+**Stack:** Python · LangGraph · FastAPI · Pydantic · PostgreSQL · SQLAlchemy · Alembic
 
-- Converted the selected MLX adapter through PEFT layout into a llama.cpp-compatible F16 LoRA artifact.
-- Diagnosed and rejected a faulty direct fused conversion after it produced invalid generations.
-- Compared Q4_K_M and Q8_0 bases on a fixed, scenario-balanced 50-row equivalence canary.
-- Selected Q8_0 for stronger structured fidelity despite its higher local latency.
+[Source code](https://github.com/cyash24f3/resolveflow) · [Live demo](https://resolveflow-wojr.onrender.com/) · [Architecture & transactions](https://github.com/cyash24f3/resolveflow/blob/main/docs/ARCHITECTURE.md)
 
-| Portability canary | Q4_K_M | Q8_0 selected |
-|:---|---:|---:|
-| Strict schema validity | 90% | **92%** |
-| Exact agreement with MLX | 56% | **62%** |
-| Mean matching fields | 8.66 / 10 | **8.88 / 10** |
+### DocuLens · Evidence-grounded knowledge copilot
 
-The service includes:
+A retrieval-augmented knowledge assistant for support documentation, with PDF, Markdown, and text ingestion, search, and answers linked to exact source versions.
 
-- Typed FastAPI and Pydantic request/response contracts
-- Supervised llama.cpp process lifecycle and readiness
-- Immutable release manifests and SHA-256 artifact verification
-- Strict model-output validation and typed failures
-- Bounded concurrency, rate limiting, and timeouts
-- Privacy-safe structured logging and Prometheus metrics
-- Liveness, readiness, and release-version endpoints
-- Non-root Docker packaging, CI, linting, type checking, and API/service tests
+- Compared **BM25, MiniLM dense retrieval, RRF hybrid search, and cross-encoder reranking** with reproducible retrieval experiments and documented evaluation limits.
+- Built versioned ingestion with background jobs and atomic activation, so a failed document replacement keeps the previous version searchable.
+- Shipped a **Render demo with quantized ONNX retrieval and Groq generation**, plus local Ollama generation and persistent PostgreSQL/pgvector deployment through Docker Compose.
 
-**Deployment boundary:** the public URL is an evidence showcase. The verified Q8 llama.cpp model service performs real inference locally; I do not present the static site as publicly hosted live model compute.
+**Stack:** Python · FastAPI · Sentence Transformers · ONNX Runtime · PostgreSQL/pgvector · Docker
+
+[Source code](https://github.com/cyash24f3/doculens-v2) · [Live demo](https://yash-doculens-v2.onrender.com/) · [Retrieval results](https://github.com/cyash24f3/doculens-v2/blob/main/docs/evidence/retrieval-test/report.md)
 
 ## Engineering stack
 
-| Area | Tools and concepts |
+| Area | Tools I use |
 |:---|:---|
-| Languages | Python, SQL, Java, C++ |
-| LLM / NLP | Transformers, LoRA, QLoRA, structured generation, prompt contracts |
-| Frameworks | PyTorch, MLX-LM, Hugging Face, scikit-learn, FastAPI, Pydantic |
-| Model runtimes | MLX, llama.cpp, GGUF |
-| Evaluation | Schema validity, exact/field metrics, macro F1, bootstrap intervals, slice and error analysis |
-| Engineering | REST, OpenAPI, Docker, pytest, mypy, GitHub Actions, Linux |
-| Experimentation | Weights & Biases, Jupyter, reproducible virtual environments |
+| Languages | Python, SQL, JavaScript, HTML/CSS |
+| Model adaptation | PyTorch, Hugging Face Transformers, PEFT/LoRA, TRL, scikit-learn |
+| Retrieval & generation | Sentence Transformers, BM25, RRF, cross-encoders, ONNX Runtime, Ollama, Groq |
+| Agents & APIs | LangGraph, FastAPI, Pydantic, REST/OpenAPI |
+| Data & persistence | PostgreSQL, pgvector, SQLite, SQLAlchemy, Alembic |
+| Deployment | Docker, Docker Compose, Render, Neon, Hugging Face Spaces |
+| Quality & tooling | pytest, Playwright, Ruff, mypy, GitHub Actions, Git, uv |
 
-## How I approach an AI system
+## How I build
 
-```text
-Task contract
-  → data generation and validation
-  → leakage-aware split and baselines
-  → parameter-efficient fine-tuning
-  → strict held-out evaluation and error analysis
-  → cross-runtime conversion and equivalence canary
-  → release manifest and verified artifacts
-  → bounded API serving, observability, and containerization
-```
+**Define the contract → build a baseline → evaluate failures → ship a bounded service.**
+
+I keep model quality, workflow correctness, and deployment verification as separate measurements. My repositories include setup instructions, architecture notes, experiment records, and observed limitations so the work can be reproduced and reviewed.
 
 ## Education
 
-**Indian Institute of Technology Madras**  
-BS in Data Science & Applications · CGPA 8.94 · 2024–October 2027  
-Completed the Diplomas in Programming and Data Science.
+**Indian Institute of Technology Madras**<br>
+BS in Data Science & Applications · Pursuing<br>
+**CGPA 8.95** · 2024–October 2027
 
-**BITS Pilani**  
-BE Chemical Engineering · Academic break to pursue AI/ML · 2023–present.
+**BITS Pilani**<br>
+BE Chemical Engineering · 2023–2025<br>
+Dropped out.
 
 ---
 
 <div align="center">
 
-Open to remote, six-month AI Engineering internships.
+**[LinkedIn](https://www.linkedin.com/in/yash-chavan-9500a3228/)** · **[Hugging Face](https://huggingface.co/cyash1204)** · **[Email](mailto:yashchavan1214@gmail.com)**
 
 </div>
