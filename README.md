@@ -2,7 +2,7 @@
 
 # Yash Chavan
 
-### AI Engineering · ML Engineering
+### AI/ML Engineering
 
 Building and evaluating machine learning systems, from model adaptation to agent workflows and evidence-grounded search.
 
